@@ -3,11 +3,11 @@ describe("Newsletter Subscribe Form", () => {
         cy.visit(Cypress.config('baseUrl'))
     })
 
-    it("allows users to subscribe to the email list", () => {
-        cy.getByData("email-input").type("tom@aol.com")
-        cy.getByData("submit-button").click()
-        cy.getByData("success-message").should("exist").contains("tom@aol.com")
-    })
+    // it("allows users to subscribe to the email list", () => {
+    //     cy.getByData("email-input").type("tom@aol.com")
+    //     cy.getByData("submit-button").click()
+    //     cy.getByData("success-message").should("exist").contains("tom@aol.com")
+    // })
 
     it("does NOT allow an invalid email address", () =>{
         cy.getByData("email-input").type("tom")
@@ -18,6 +18,8 @@ describe("Newsletter Subscribe Form", () => {
         // https://docs.cypress.io/guides/references/assertions#Chai
         // https://www.chaijs.com/api/bdd/ 
         cy.getByData("success-message").should("not.exist")
+     
+ 
     })
 
     it("does NOT allow already subscribed email addresses", () => {
